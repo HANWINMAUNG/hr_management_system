@@ -16,224 +16,96 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/material.min.css') }}">
 </head>
 <body>
-    <div class="page-wrapper chiller-theme toggled">
+    <div class="page-wrapper chiller-theme ">
         <nav id="sidebar" class="sidebar-wrapper">
             <div class="sidebar-content">
-            <div class="sidebar-brand">
-                <a href="#">pro sidebar</a>
-                <div id="close-sidebar">
-                <i class="fas fa-times"></i>
-                </div>
-            </div>
-            <div class="sidebar-header">
-                <div class="user-pic">
-                <img class="img-responsive img-rounded" src="https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg"
-                    alt="User picture">
-                </div>
-                <div class="user-info">
-                <span class="user-name">Jhon
-                    <strong>Smith</strong>
-                </span>
-                <span class="user-role">Administrator</span>
-                <span class="user-status">
-                    <i class="fa fa-circle"></i>
-                    <span>Online</span>
-                </span>
-                </div>
-            </div>
-            <!-- sidebar-header  -->
-            <div class="sidebar-search">
-                <div>
-                <div class="input-group">
-                    <input type="text" class="form-control search-menu" placeholder="Search...">
-                    <div class="input-group-append">
-                    <span class="input-group-text">
-                        <i class="fa fa-search" aria-hidden="true"></i>
-                    </span>
+                <div class="sidebar-brand">
+                    <a href="#">Hr Management</a>
+                    <div id="close-sidebar">
+                    <i class="fas fa-times"></i>
                     </div>
                 </div>
+                <div class="sidebar-header">
+                    <div class="user-pic">
+                    <img class="img-responsive img-rounded" src="https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg"
+                        alt="User picture">
+                    </div>
+                    <div class="user-info">
+                        <span class="user-name">Jhon
+                            <strong>Smith</strong>
+                        </span>
+                        <span class="user-role">Administrator</span>
+                        <span class="user-status">
+                            <i class="fa fa-circle"></i>
+                            <span>Online</span>
+                        </span>
+                    </div>
                 </div>
-            </div>
-            <!-- sidebar-search  -->
-            <div class="sidebar-menu">
-                <ul>
-                <li class="header-menu">
-                    <span>General</span>
-                </li>
-                <li class="sidebar-dropdown">
-                    <a href="#">
-                    <i class="fa fa-tachometer-alt"></i>
-                    <span>Dashboard</span>
-                    <span class="badge badge-pill badge-warning">New</span>
-                    </a>
-                    <div class="sidebar-submenu">
+                <!-- sidebar-header  -->
+                <div class="sidebar-menu">
                     <ul>
-                        <li>
-                        <a href="#">Dashboard 1
-                            <span class="badge badge-pill badge-success">Pro</span>
-                        </a>
+                        <li class="header-menu">
+                            <span>Meun</span>
                         </li>
                         <li>
-                        <a href="#">Dashboard 2</a>
+                            <a href="#">
+                            <i class="fas fa-home"></i>
+                            <span>Home</span>
+                            </a>
                         </li>
                         <li>
-                        <a href="#">Dashboard 3</a>
+                            <a href="{{ route('employee.index')}}">
+                            <i class="fas fa-users"></i>
+                            <span>Employees</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-dropdown">
+                            <a href="#">
+                            <i class="fa fa-globe"></i>
+                            <span>Maps</span>
+                            </a>
+                            <div class="sidebar-submenu">
+                            <ul>
+                                <li>
+                                <a href="#">Google maps</a>
+                                </li>
+                                <li>
+                                <a href="#">Open street map</a>
+                                </li>
+                            </ul>
+                            </div>
                         </li>
                     </ul>
-                    </div>
-                </li>
-                <li class="sidebar-dropdown">
-                    <a href="#">
-                    <i class="fa fa-shopping-cart"></i>
-                    <span>E-commerce</span>
-                    <span class="badge badge-pill badge-danger">3</span>
-                    </a>
-                    <div class="sidebar-submenu">
-                    <ul>
-                        <li>
-                        <a href="#">Products
-
-                        </a>
-                        </li>
-                        <li>
-                        <a href="#">Orders</a>
-                        </li>
-                        <li>
-                        <a href="#">Credit cart</a>
-                        </li>
-                    </ul>
-                    </div>
-                </li>
-                <li class="sidebar-dropdown">
-                    <a href="#">
-                    <i class="far fa-gem"></i>
-                    <span>Components</span>
-                    </a>
-                    <div class="sidebar-submenu">
-                    <ul>
-                        <li>
-                        <a href="#">General</a>
-                        </li>
-                        <li>
-                        <a href="#">Panels</a>
-                        </li>
-                        <li>
-                        <a href="#">Tables</a>
-                        </li>
-                        <li>
-                        <a href="#">Icons</a>
-                        </li>
-                        <li>
-                        <a href="#">Forms</a>
-                        </li>
-                    </ul>
-                    </div>
-                </li>
-                <li class="sidebar-dropdown">
-                    <a href="#">
-                    <i class="fa fa-chart-line"></i>
-                    <span>Charts</span>
-                    </a>
-                    <div class="sidebar-submenu">
-                    <ul>
-                        <li>
-                        <a href="#">Pie chart</a>
-                        </li>
-                        <li>
-                        <a href="#">Line chart</a>
-                        </li>
-                        <li>
-                        <a href="#">Bar chart</a>
-                        </li>
-                        <li>
-                        <a href="#">Histogram</a>
-                        </li>
-                    </ul>
-                    </div>
-                </li>
-                <li class="sidebar-dropdown">
-                    <a href="#">
-                    <i class="fa fa-globe"></i>
-                    <span>Maps</span>
-                    </a>
-                    <div class="sidebar-submenu">
-                    <ul>
-                        <li>
-                        <a href="#">Google maps</a>
-                        </li>
-                        <li>
-                        <a href="#">Open street map</a>
-                        </li>
-                    </ul>
-                    </div>
-                </li>
-                <li class="header-menu">
-                    <span>Extra</span>
-                </li>
-                <li>
-                    <a href="#">
-                    <i class="fa fa-book"></i>
-                    <span>Documentation</span>
-                    <span class="badge badge-pill badge-primary">Beta</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                    <i class="fa fa-calendar"></i>
-                    <span>Calendar</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                    <i class="fa fa-folder"></i>
-                    <span>Examples</span>
-                    </a>
-                </li>
-                </ul>
-            </div>
-            <!-- sidebar-menu  -->
+                </div>
+                <!-- sidebar-menu  -->
             </div>
             <!-- sidebar-content  -->
-            <div class="sidebar-footer">
-            <a href="#">
-                <i class="fa fa-bell"></i>
-                <span class="badge badge-pill badge-warning notification">3</span>
-            </a>
-            <a href="#">
-                <i class="fa fa-envelope"></i>
-                <span class="badge badge-pill badge-success notification">7</span>
-            </a>
-            <a href="#">
-                <i class="fa fa-cog"></i>
-                <span class="badge-sonar"></span>
-            </a>
-            <a href="#">
-                <i class="fa fa-power-off"></i>
-            </a>
-            </div>
         </nav>
         <!-- sidebar-wrapper  -->
         <div class="main">
-            <div class="header-meun">
-                <div class="row justify-content-center">
+            <div class="app-bar">
+                <div class="d-flex justify-content-center">
                     <div class="col-md-8">
                         <div class="d-flex justify-content-between">
                             <a href="#" id="show-sidebar"><i class="fas fa-bars"></i></a>
-                            <h5>@yield('title')</h5>
-                            <a href="#">
-                                
-                            </a>
+                            <h5 class="mb-0">@yield('title')</h5>
+                            <a href="#"></a>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="py-4">
-                @yield('content')
+                <div class="d-flex justify-content-center">
+                    <div class="col-md-8">
+                        @yield('content')
+                    </div>
+                </div>
             </div>
-            <div class="bottom-meun">
-                <div class="row justify-content-center">
+            <div class="bottom-bar">
+                <div class="d-flex justify-content-center">
                     <div class="col-md-8">
                         <div class="d-flex justify-content-between">
                             <a href="#">
@@ -263,6 +135,8 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    <script src="{{asset('js/datatable.min.js')}}"></script>
+    <script src="{{asset('js/datatable_material.min.js')}}"></script>
     <script>
         jQuery(function ($) {
 
@@ -278,14 +152,16 @@
                 }
                 });
 
-                $("#close-sidebar").click(function() {
+                $("#close-sidebar").click(function(e) {
+                    e.preventDefault();
                    $(".page-wrapper").removeClass("toggled");
                 });
-                $("#show-sidebar").click(function() {
+                $("#show-sidebar").click(function(e) {
+                    e.preventDefault();
                    $(".page-wrapper").addClass("toggled");
                 });
         });
     </script>
-
+    @yield('script')
 </body>
 </html>

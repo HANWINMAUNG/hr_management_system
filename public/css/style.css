@@ -6,28 +6,34 @@
     color:#fff !important;
 }
 /*---header meun ----*/
-.header-meun{
-    padding:15px 0 !important;
+.app-bar{
+    padding:10px 0 !important;
     box-shadow: 0 .5rem 1rem rgba(0,0,0,.15) !important;
 }
-.bottom-meun{
+.app-bar a{
+  color: #000;
+}
+.bottom-bar{
     position:absolute;
     width: 100%;
     bottom: 0;
     padding:15px 0 !important;
     box-shadow: 0 .5rem 1rem rgba(0,0,0,.15) !important;
 }
-.bottom-meun a{
+.bottom-bar a{
     text-align: center;
     padding: 10px 15px;
     text-decoration: none;
     color: #000;
 }
-.bottom-meun a p{
+.bottom-bar a p{
     font-size: 12px;
     text-transform: uppercase;
 }
 /*-----sidebars ------*/
+#show-sidebar{
+    font-size: 24px;
+}
 @keyframes swing {
     0% {
       transform: rotate(0deg);
