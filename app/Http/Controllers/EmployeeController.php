@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Department;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
+use App\Http\Requests\EmployeeRequest;
 
 class EmployeeController extends Controller
 {
@@ -23,8 +26,18 @@ class EmployeeController extends Controller
     }
     private function dataTable()
     {
-        $query = User::query();  
+        $query = User::with('Department');  
             return DataTables::of($query)
+                       ->addColumn('department_name',function($each){
+                        return $each->Department ? $each->Department->title : '-';
+                       })
+                       ->editColumn('is_present',function($each){
+                         if($each->is_present == 1){
+                            return '<span class="badge text-bg-success">Present</span>';
+                         }else{
+                            return '<span class="badge text-bg-danger">Leave</span>';
+                         };
+                       })
                        ->order(function ($user)
                        {
                         $user->orderBy('created_at' , 'desc');
@@ -33,6 +46,7 @@ class EmployeeController extends Controller
                       {
                         return date('d-M-Y H:i:s' , strtotime($data->created_at));
                       })
+                      ->rawColumns(['is_present'])
                        ->make(true);
     }
 
@@ -43,7 +57,8 @@ class EmployeeController extends Controller
      */
     public function create()
     {
-        //
+        $departments = Department::orderBy('title')->get();
+        return view('employee.create',['departments' => $departments ]);
     }
 
     /**
@@ -52,9 +67,12 @@ class EmployeeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(EmployeeRequest $request)
     {
-        //
+        $attributes = $request->validated();
+        $attributes['password'] = Hash::make($attributes['password']);
+        User::create($attributes);
+        return redirect()->route('employee.index')->with('create','Employee is successfully created!');
     }
 
     /**

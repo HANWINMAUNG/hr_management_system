@@ -14,9 +14,12 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.css" rel="stylesheet"/>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!-- datepicker -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/material.min.css') }}">
+    @yield('header')
 </head>
 <body>
     <div class="page-wrapper chiller-theme ">
@@ -25,7 +28,7 @@
                 <div class="sidebar-brand">
                     <a href="#">Hr Management</a>
                     <div id="close-sidebar">
-                    <i class="fas fa-times"></i>
+                      <i class="fas fa-times"></i>
                     </div>
                 </div>
                 <div class="sidebar-header">
@@ -97,7 +100,7 @@
                     </div>
                 </div>
             </div>
-            <div class="py-4">
+            <div class="py-2 content" >
                 <div class="d-flex justify-content-center">
                     <div class="col-md-8">
                         @yield('content')
@@ -130,18 +133,24 @@
             </div>
         </div> 
     </div>
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <!-- MDB -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
     <script src="{{asset('js/datatable.min.js')}}"></script>
     <script src="{{asset('js/datatable_material.min.js')}}"></script>
+    <!-- datapicker -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <!-- sweet alert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="text/javascript" src="{{ url('vendor/jsvalidation/js/jsvalidation.js')}}"></script>
     <script>
         jQuery(function ($) {
 
                 $(".sidebar-dropdown > a").click(function() {
-                        $(".sidebar-submenu").slideUp(200);
+                        $(".sidebar-submenu").slideUp(200); 
                 if ($(this).parent().hasClass("active")){
                     $(".sidebar-dropdown").removeClass("active");
                     $(this).parent().removeClass("active");
@@ -160,6 +169,21 @@
                     e.preventDefault();
                    $(".page-wrapper").addClass("toggled");
                 });
+                document.addEventListener('click',function(event){
+                    if(document.getElementById('show-sidebar').contains(event.target)){
+                        $(".page-wrapper").addClass("toggled");
+                    }else if(!document.getElementById('sidebar').contains(event.target)){
+                        $(".page-wrapper").removeClass("toggled");
+                    }
+                });
+                @if(session('create'))
+                Swal.fire({
+                    title: 'Succefully Created!',
+                    text: "{{ session('create') }}",
+                    icon: 'success',
+                    confirmButtonText: 'Continue'
+                });
+                @endif
         });
     </script>
     @yield('script')

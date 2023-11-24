@@ -1,3 +1,10 @@
+.badge{
+  padding: 6px;
+  font-size: 12px;
+}
+.btn{
+  font-size: 14px  !important;
+}
 .btn-theme{
     color:#fff;
     background-color: #4CD195 !important;
@@ -7,22 +14,39 @@
 }
 /*---header meun ----*/
 .app-bar{
+    /* background: #fff;
+    position:fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 999; */
     padding:10px 0 !important;
-    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15) !important;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15) !important; 
 }
 .app-bar a{
   color: #000;
 }
+/* content bar */
+.content{
+  height: 85vh;
+  overflow: scroll;
+}
+/* bottom bar */
 .bottom-bar{
+    /* background: #fff;
+    position:fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 999; */
     position:absolute;
     width: 100%;
-    bottom: 0;
-    padding:15px 0 !important;
+    padding:13px 0 !important;
     box-shadow: 0 .5rem 1rem rgba(0,0,0,.15) !important;
 }
 .bottom-bar a{
     text-align: center;
-    padding: 10px 15px;
+    padding: 5px 25px;
     text-decoration: none;
     color: #000;
 }
@@ -481,4 +505,9 @@
   .chiller-theme .sidebar-footer>a:last-child {
       border-right: none;
   }
+
+  .pagination .page-item.active .page-link{
+    background-color:#4CD195 !important;
+  }
+
   
